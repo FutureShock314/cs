@@ -8,7 +8,7 @@ print('My name\'s Sir Charles, Duke of Essex, and thou shalt address me as such,
 sleep(3)
 
 name = input('Now that the important pleasantries are over, \
-it would be rude of me to not ask your name?\n')
+it would be rude of me to not ask your name?\n>> ')
 sleep(1)
 
 print(f'Sorry, did you say {name}?')
@@ -35,9 +35,9 @@ sleep(2)
 print('The Stock Market')
 sleep(4)
 follows = input('Do you follow the stock market, peasant?\n>> ')
-if follows.upper() == 'YES' or 'Y':
+if follows.upper() == 'YES' or follows.upper() == 'Y':
     print('well, I don\'t, so have a good day, chap')
-elif follows.upper() == 'NO' or 'N':
+elif follows.upper() == 'NO' or follows.upper() == 'N':
     print('neither lol')
 else:
     print('you little bugger')
