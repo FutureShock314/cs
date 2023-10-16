@@ -3,8 +3,13 @@ from time import sleep
 def pr(a:str):
     print(a)
 
+pr = print()
+
 def sl(a):
     sleep(a)
+
+sl = sleep()
+sl1 = sl(1)
 
 for i in range(5):
     sleep(i)
@@ -12,6 +17,7 @@ for i in range(5):
 
 print('you wake up')
 sleep(1)
+
 print('idk what to say here imagine i say something ominous')
 sleep(1)
 print('as your vision clears, you see three hallways extending in front of you')
