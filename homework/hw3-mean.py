@@ -1,0 +1,2 @@
+import funcs
+funcs.getMean()
