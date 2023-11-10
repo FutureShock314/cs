@@ -33,3 +33,8 @@ def cipher():
             shifted -= 26
         out += alphabet[shifted]
     print(out)
+
+# for hw5
+
+def salaryCalc():
+    

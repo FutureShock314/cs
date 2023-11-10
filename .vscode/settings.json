@@ -6,7 +6,9 @@
     "python.formatting.provider": "none",
     "terminal.integrated.gpuAcceleration": "off",
     "cSpell.words": [
+        "Bossfight",
         "funcs",
-        "Haha"
+        "Haha",
+        "Nanolove"
     ],
 }
