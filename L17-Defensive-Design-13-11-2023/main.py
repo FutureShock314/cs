@@ -10,7 +10,6 @@ grades = {
 name = ''
 while name not in grades.keys():
     name = input('give name\n>> ').capitalize()
-    if name in grades.keys():
-        print(grades[name])
-    else:
+    if name not in grades.keys():
         print('you dont exist')
+print(grades[name])
