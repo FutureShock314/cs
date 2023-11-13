@@ -1,3 +1,5 @@
+import time # hw6
+
 # for hw3
 import statistics
 def getMean():
@@ -37,4 +39,9 @@ def cipher():
 # for hw5
 
 def salaryCalc():
-    
+    print #TODO finish
+
+# for hw6
+
+def timeToMidnight():
+    print(time.localtime())
