@@ -1,0 +1,24 @@
+{
+    "commands": {
+        "add": {
+            "syntax": "add <item: str>",
+            "desc": "Adds an item to your list"
+        },
+        "remove": {
+            "syntax": "remove <item: str | index: int>",
+            "desc": "Removes given item from your list"
+        },
+        "list": {
+            "syntax": "list",
+            "desc": "Outputs your list"
+        },
+        "exit": {
+            "syntax": "exit",
+            "desc": "Exits the program"
+        },
+        "help <?function>": {
+            "syntax": "help <?function>",
+            "desc": "Displays this text, or explanations for specific commands"
+        }
+    }
+}
