@@ -1,0 +1,169 @@
+﻿Diagnose log at 2023-11-20T07:51:17Z
+
+AppPath: /usr/bin/git-credential-manager
+InstallDir: /usr/lib/share/git-credential-manager-core/
+Version: 2.4.1
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Linux
+OSVersion: Arch Linux
+Reading environment variables... OK
+ Variables:
+MOTD_SHOWN=pam
+GIT_TRACE2_PARENT_SID=ba2bd7b5-8ef3-4562-9b29-86ff61ace3f6
+XCURSOR_SIZE=24
+KITTY_PUBLIC_KEY=1:m2oeN-z~0hQcc?53axNu+_WyvUs=<e@k!9vrox5{
+COLORTERM=truecolor
+KITTY_INSTALLATION_DIR=/usr/lib/kitty
+SHLVL=1
+POSH_PID=146248
+DESKTOP_SESSION=hyprland
+LANG=en_GB.UTF-8
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+XDG_SESSION_CLASS=user
+XDG_SESSION_ID=1
+HOME=/home/ayaan
+POSH_THEME=/home/ayaan/oh-my-posh/themes/1_shell.omp.json
+KITTY_WINDOW_ID=1
+KITTY_PID=146240
+POWERLINE_COMMAND=oh-my-posh
+XDG_SESSION_TYPE=wayland
+WAYLAND_DISPLAY=wayland-1
+PWD=/home/ayaan/code/git-repos/cs
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ayaan/.spicetify:/home/ayaan/.spicetify
+TERM=xterm-kitty
+DEBUGINFOD_URLS=https://debuginfod.archlinux.org 
+XDG_SEAT=seat0
+_JAVA_AWT_WM_NONREPARENTING=1
+XDG_CURRENT_DESKTOP=Hyprland
+XDG_BACKEND=wayland
+USER=ayaan
+CONDA_PROMPT_MODIFIER=false
+XDG_RUNTIME_DIR=/run/user/1000
+POSH_CURSOR_COLUMN=1
+HYPRLAND_CMD=Hyprland
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+LOGNAME=ayaan
+HYPRLAND_INSTANCE_SIGNATURE=1b48642fd15c433c53876f1b933dcd46265caf8f_1700406495
+SHELL=/bin/bash
+DISPLAY=:1
+TERMINFO=/usr/lib/kitty/terminfo
+XDG_VTNR=1
+MOZ_ENABLE_WAYLAND=1
+_=/usr/bin/git-credential-manager
+XDG_SESSION_DESKTOP=
+POSH_SHELL_VERSION=5.2.15(1)-release
+OLDPWD=/home/ayaan
+MAIL=/var/spool/mail/ayaan
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+POSH_CURSOR_LINE=39
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is '/tmp/'...
+Checking basic file I/O...
+Writing to temporary file '/tmp/51604e55a3b082f16f07d7d0'... OK
+Reading from temporary file '/tmp/51604e55a3b082f16f07d7d0'... OK
+Deleting temporary file '/tmp/51604e55a3b082f16f07d7d0'... OK
+Testing IFileSystem instance...
+UserHomePath: /home/ayaan
+UserDataDirectoryPath: /home/ayaan/.gcm
+GetCurrentDirectory(): /home/ayaan/code/git-repos/cs
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com...Sending HEAD request to https://example.com... OK
+ OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:39257/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.42.1'
+Locating current repository... OK
+Git repository at '/home/ayaan/code/git-repos/cs/.git'
+Listing all Git configuration... OK
+Git configuration:
+file:/home/ayaan/.gitconfig	credential.helper=
+file:/home/ayaan/.gitconfig	credential.helper=/usr/bin/git-credential-manager
+file:/home/ayaan/.gitconfig	credential.credentialstore=cache
+file:/home/ayaan/.gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:/home/ayaan/.gitconfig	user.email=ayaan.waqas@outlook.com
+file:/home/ayaan/.gitconfig	user.name=FutureShock314
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=true
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	remote.origin.url=https://github.com/futureshock314/cs
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config	branch.main.remote=origin
+file:.git/config	branch.main.merge=refs/heads/main
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Flow type is: Auto
+Gathering MSAL token cache data... OK
+CacheDirectory: /home/ayaan/.local/.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: /home/ayaan/.local/.IdentityService/msal.cache
+KeyringCollection: 
+KeyringSchemaName: 
+KeyringSecretLabel: 
+KeyringAttribute1: (,)
+KeyringAttribute2: (,)
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: True
+Exception: None
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint... OK
+
