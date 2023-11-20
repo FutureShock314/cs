@@ -16,7 +16,7 @@
             "syntax": "exit",
             "desc": "Exits the program"
         },
-        "help <?function>": {
+        "help": {
             "syntax": "help <?function>",
             "desc": "Displays this text, or explanations for specific commands"
         }
