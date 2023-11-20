@@ -61,6 +61,11 @@ while command != 'exit':
 
     if command[0] == 'list':
         print()
-        for i in range(len(shoppingList)):
-            print(f'{i + 1}. {shoppingList[i]}')
+        if len(command) == 1:
+            for i in range(len(shoppingList)):
+                print(f'{i + 1}. {shoppingList[i]}')
+        elif command[1] == '--inline':
+            print(shoppingList)
+        else:
+            print('Invalid Parameter')
         print()
