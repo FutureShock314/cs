@@ -1,5 +1,9 @@
 import json, random, os
-from rich import print
+import rich
+from rich.prompt import Prompt, Confirm
+import platform
+
+rpr = rich.print
 
 with open('./help.json', 'r') as f:
     helpJson = json.load(f)['commands']
@@ -65,7 +69,8 @@ def cmdList(cmd: list):
     print()
 
 
-os.system('clear')
+if Confirm.ask('clear before running?'):
+    os.system('clear')
 
 print('''\
      _                       _
@@ -81,13 +86,14 @@ print('''\
 |_|_|___/\__|
 ''')
 
-print('Some Guy\'s Random Command Prompt\nAll Right Reserved\nThis is mine :D\n\n')
-print('Type a command and press <Enter>, or type \'help\' for more info.')
+rpr('Some Guy\'s Random Command Prompt\nAll Right Reserved\nThis is mine :D\n\n')
+rpr('Type a command and press <Enter>, or type \'help\' for more info.')
 computerNum = random.randint(100, 999)
 command = ''
 
 while command != 'exit':
-    command = input(f'User@SomeMachine{computerNum}$ ').split(' ')
+    rpr(f'[bold green]User[/bold green]@[red]{platform.node()}[/red]$ ', end='')
+    command = input().split(' ')
     if command[0] == 'exit':
         os.system('clear')
         quit()
