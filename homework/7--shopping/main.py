@@ -18,26 +18,49 @@ def cmdHelp(cmd: list):
 
 def cmdAdd(cmd: list):
     list = shoppingList
-    try:
-        if len(cmd) > 1:
+    if len(cmd) > 1:
+        try:
             print('Successfully added items: ')
             for i in range(1, len(cmd)):
                 list.append(cmd[i])
                 print(f'\t{i}. {cmd[i]}')
             print('to the list!')
-    except:
-        print(f'Failed to add {cmd[1]} to the list. Not sure how you did this')
+        except:
+            print(f'Failed to add items to the list. Not sure how you did this')
+    else:
+        try:
+            list.append(cmd[1])
+            print(f'Successfully added {cmd[1]} to the list!')
+        except:
+            print(f'Failed to add {cmd[1]} to the list. Not sure how you did this')
+    print()
+
+def cmdRemove(cmd: list):
+    list = shoppingList
+    if len(cmd) > 1:
+        try:
+            for i in range(1, len(cmd)):
+                list.remove(cmd[i])
+            print('Successfully removed items!')
+        except:
+            print('Failed to remove items. Perhaps a typo?')
+    else:
+        try:
+            list.remove(cmd[1])
+            print(f'Successfully removed {cmd[1]} from the list!')
+        except:
+            print(f'Failed to remove {cmd[1]}, perhaps a typo?')
     print()
 
 def cmdList(cmd: list):
     list = shoppingList
-    if len(command) == 1:
-        for i in range(len(shoppingList)):
-            print(f'{i + 1}. {shoppingList[i]}')
-    elif '--inline' in command:
-        print(shoppingList)
+    if len(cmd) == 1:
+        for i in range(len(list)):
+            print(f'{i + 1}. {list[i]}')
+    elif '--inline' in cmd:
+        print(list)
     else:
-        print(f'Invalid Parameter(s): {command[1:len(command)]}')
+        print(f'Invalid Parameter(s): {cmd[1:len(cmd)]}')
     print()
 
 
@@ -79,3 +102,7 @@ while command != 'exit':
     if command[0] == 'list':
         print()
         cmdList(command)
+
+    if command[0] == 'remove':
+        print()
+        cmdRemove(command)
