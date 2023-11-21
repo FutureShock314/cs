@@ -24,6 +24,8 @@ def cmdAdd(cmd: list):
     except:
         print(f'Failed to add {cmd[1]} to the list. Not sure how you did this\n')
 
+        
+
 os.system('clear')
 
 print('''\
@@ -64,8 +66,8 @@ while command != 'exit':
         if len(command) == 1:
             for i in range(len(shoppingList)):
                 print(f'{i + 1}. {shoppingList[i]}')
-        elif command[1] == '--inline':
+        elif '--inline' in command:
             print(shoppingList)
         else:
-            print('Invalid Parameter')
-        print()
+            print(f'Invalid Parameter(s): {command[1:len(command)]}')
+        print()h
