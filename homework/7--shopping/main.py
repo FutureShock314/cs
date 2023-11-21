@@ -1,4 +1,5 @@
 import json, random, os
+from rich import print
 
 with open('./help.json', 'r') as f:
     helpJson = json.load(f)['commands']
