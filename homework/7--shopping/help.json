@@ -2,7 +2,7 @@
     "commands": {
         "add": {
             "syntax": "add <item: str>",
-            "desc": "Adds an item to your list"
+            "desc": "Adds an item, or list of items separated by spaces, to your list"
         },
         "remove": {
             "syntax": "remove <item: str | index: int>",

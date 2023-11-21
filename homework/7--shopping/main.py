@@ -19,12 +19,27 @@ def cmdHelp(cmd: list):
 def cmdAdd(cmd: list):
     list = shoppingList
     try:
-        list.append(cmd[1])
-        print(f'Successfully added {cmd[1]} to the list!\n')
+        if len(cmd) > 1:
+            print('Successfully added items: ')
+            for i in range(1, len(cmd)):
+                list.append(cmd[i])
+                print(f'\t{i}. {cmd[i]}')
+            print('to the list!')
     except:
-        print(f'Failed to add {cmd[1]} to the list. Not sure how you did this\n')
+        print(f'Failed to add {cmd[1]} to the list. Not sure how you did this')
+    print()
 
-        
+def cmdList(cmd: list):
+    list = shoppingList
+    if len(command) == 1:
+        for i in range(len(shoppingList)):
+            print(f'{i + 1}. {shoppingList[i]}')
+    elif '--inline' in command:
+        print(shoppingList)
+    else:
+        print(f'Invalid Parameter(s): {command[1:len(command)]}')
+    print()
+
 
 os.system('clear')
 
@@ -63,11 +78,4 @@ while command != 'exit':
 
     if command[0] == 'list':
         print()
-        if len(command) == 1:
-            for i in range(len(shoppingList)):
-                print(f'{i + 1}. {shoppingList[i]}')
-        elif '--inline' in command:
-            print(shoppingList)
-        else:
-            print(f'Invalid Parameter(s): {command[1:len(command)]}')
-        print()h
+        cmdList(command)
