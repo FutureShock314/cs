@@ -1,6 +1,7 @@
 import json, random, os
 import rich
 from rich.prompt import Prompt, Confirm
+from rich.align import Align
 import platform
 
 rpr = rich.print
@@ -92,7 +93,8 @@ computerNum = random.randint(100, 999)
 command = ''
 
 while command != 'exit':
-    rpr(f'[bold green]User[/bold green]@[red]{platform.node()}[/red]$ ', end='')
+    prompt = f'[[bold green]User[/bold green]@[red]{platform.node()}[/red]][bold blue]$[/bold blue] '
+    rpr(prompt, end='')
     command = input().split(' ')
     if command[0] == 'exit':
         os.system('clear')
