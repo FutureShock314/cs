@@ -1,5 +1,5 @@
 import json
-import userAuth
+from auth import userAuth
 
 # with open('./users.json', 'r') as f:
 #     users = json.load(f)
@@ -9,4 +9,4 @@ import userAuth
 # with open('./users.json', 'w') as f:
 #     f.write(users)
 
-user-auth.auth()
+userAuth.auth()
