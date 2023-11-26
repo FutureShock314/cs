@@ -1,5 +1,7 @@
 import json
-from auth import userAuth
+from auth import auth
+from rich.Prompt import Confirm
+
 
 # with open('./users.json', 'r') as f:
 #     users = json.load(f)
@@ -9,4 +11,4 @@ from auth import userAuth
 # with open('./users.json', 'w') as f:
 #     f.write(users)
 
-userAuth.auth()
+auth.auth()
