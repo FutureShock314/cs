@@ -1,12 +1,13 @@
-from rich.Prompt import Confirm
-from checkUser import checkUser
+from rich.prompt import Confirm
+from auth.checkUser import checkUser
+from auth.passAuth import passAuth
 
 def auth():
     isUser = Confirm.ask('Have you used this program before, and created an account? ')
 
     if isUser:
-        continue = Confirm.ask('Would you like to log in? ')
-        if continue:
+        willContinue = Confirm.ask('Would you like to log in? ')
+        if willContinue:
             while True:
                 username = input('Please enter your username\n>> ')
                 if checkUser(username):
@@ -19,3 +20,6 @@ def auth():
             print('Exiting...')
             quit()
 
+    # if not already a user, ask if they want to create an account
+    else:
+        # createAcc()

@@ -1,6 +1,6 @@
 import json
 from auth import auth
-from rich.Prompt import Confirm
+from rich.prompt import Confirm
 
 
 # with open('./users.json', 'r') as f:
@@ -11,4 +11,5 @@ from rich.Prompt import Confirm
 # with open('./users.json', 'w') as f:
 #     f.write(users)
 
-auth.auth()
+if auth.auth():
+    print('Logged in!')
