@@ -12,10 +12,12 @@ def makeUser():
 
     if make:
         while tryAgain:
-            while username == '':
+            while username == '' or username in existingUsers.keys():
                 username = input('Please enter a username\n>> ')
                 if username == '':
                     print('Cannot have a blank username.')
+                elif username in existingUsers.keys():
+                    print(f'User \'{username}\' already exists.')
 
             while len(password) < 3:
                 password = getpass.getpass('Please enter a password, you won\'t see it as you input it\n>> ')

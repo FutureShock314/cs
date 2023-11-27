@@ -4,19 +4,22 @@ from auth.passAuth import passAuth
 from auth.makeUser import makeUser
 
 def auth():
+    username = ''
+
     isUser = Confirm.ask('Have you used this program before, and created an account?')
 
     if isUser:
         willContinue = Confirm.ask('Would you like to log in?')
         if willContinue:
-            while True:
+            while checkUser(username) == False:
                 username = input('Please enter your username\n>> ')
-                if checkUser(username):
-                    if passAuth(username):
-                        return True, username
-                else:
+                if checkUser(username) == False:
                     print('Invalid username.')
                     continue
+
+            passAuth(username)
+            
+            return True, username
         else:
             print('Exiting...')
             quit()
@@ -26,6 +29,6 @@ def auth():
         madeUser = makeUser()
         print(madeUser)
         if madeUser[0]:
-            return True, madeUser[1]
+            return madeUser
         else:
             return madeUser[0]
