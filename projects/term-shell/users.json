@@ -1,1 +1,5 @@
-{"user": "password", "nathan": "password", "ayaan": "ayaan"}
+{
+    "username": "password",
+    "nathan": "no",
+    "ayaan": "ayaan"
+}

@@ -11,5 +11,9 @@ from rich.prompt import Confirm
 # with open('./users.json', 'w') as f:
 #     f.write(users)
 
-if auth.auth():
+auth = auth.auth()
+username = auth[1]
+print(auth)
+print(username)
+if auth[0]:
     print('Logged in!')
