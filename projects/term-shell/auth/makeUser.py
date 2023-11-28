@@ -1,5 +1,7 @@
 import json, getpass
 from rich.prompt import Confirm
+from auth.passAuth import passAuth
+from auth.root import root
 
 def makeUser():
     with open('./users.json', 'r') as f:
@@ -17,7 +19,15 @@ def makeUser():
                 if username == '':
                     print('Cannot have a blank username.')
                 elif username in existingUsers.keys():
-                    print(f'User \'{username}\' already exists.')
+                    if username == 'root':
+                        if root():
+                            return True, 'root'
+                    else:
+                        print(f'User \'{username}\' already exists.')
+                        logIn = Confirm.ask('Would you like to log in to this username?')
+                        if logIn:
+                            if passAuth(username):
+                                return True, username
 
             while len(password) < 3:
                 password = getpass.getpass('Please enter a password, you won\'t see it as you input it\n>> ')

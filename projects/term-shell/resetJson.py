@@ -2,6 +2,7 @@ import json
 
 boilerPlate = json.dumps(
     {
+        "root": "superSecurePassword",
         "username": "password",
         "nathan": "no"
     },

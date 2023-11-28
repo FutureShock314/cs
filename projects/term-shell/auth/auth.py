@@ -2,6 +2,7 @@ from rich.prompt import Confirm
 from auth.checkUser import checkUser
 from auth.passAuth import passAuth
 from auth.makeUser import makeUser
+from auth.root import root
 
 def auth():
     username = ''
@@ -13,7 +14,10 @@ def auth():
         if willContinue:
             while checkUser(username) == False:
                 username = input('Please enter your username\n>> ')
-                if checkUser(username) == False:
+                if username == 'root':
+                    if root():
+                        return True, 'root'
+                elif checkUser(username) == False:
                     print('Invalid username.')
                     continue
 
@@ -27,7 +31,6 @@ def auth():
     # if not already a user, ask if they want to create an account
     else:
         madeUser = makeUser()
-        print(madeUser)
         if madeUser[0]:
             return madeUser
         else:
