@@ -17,6 +17,8 @@ def auth():
                 if username == 'root':
                     if root():
                         return True, 'root'
+                    else:
+                        return False
                 elif checkUser(username) == False:
                     print('Invalid username.')
                     continue
