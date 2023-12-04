@@ -13,6 +13,10 @@ print(username)
 
 if auth[0]:
     print('Logged in!')
+else:
+    print('bro you did the only thing that was capable of logging out')
+    print('you deserve this')
+    quit()
 
 if auth[1] == 'root':
     print('sudo/root access enabled.')
