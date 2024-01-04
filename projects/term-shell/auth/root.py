@@ -45,7 +45,8 @@ def root():
         for i in range(10):
             print('.' * (i + 1))
 
-        print('LLLLLLLLLLLLLLLLL')
+        for i in range(10000):
+            print('LLLLLLLLLLLLLLLLL')
         return False
     else:
         return True
