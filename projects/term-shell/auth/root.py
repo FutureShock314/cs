@@ -11,7 +11,7 @@ def root():
     if name != 'Ayaan Waqas':
         print('L you lose')
         return False
-    
+
     print('So you beat one challenge...')
     sl(1)
     print('But can you beat another?')
@@ -23,8 +23,8 @@ def root():
             break
         except:
             print('not an int')
-            intlim = input('What is the 32 bit unsigned integer limit? ( no cheating )\n>> ')
-            
+            intlim = input('What is the 32 bit signed integer limit? ( no cheating )\n>> ')
+
     sl(1)
     if intlim != 2_147_483_647:
         print('Nope')
