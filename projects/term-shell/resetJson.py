@@ -4,7 +4,7 @@ boilerPlate = json.dumps(
     {
         "root": "superSecurePassword",
         "username": "password",
-        "nathan": "no"
+        "nathaniel": "no"
     },
     indent=4
 )
