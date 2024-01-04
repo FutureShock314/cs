@@ -1,4 +1,7 @@
 import json
+from rich.prompt import Confirm
+
+confirm = Confirm.ask('Are you sure?')
 
 boilerPlate = json.dumps(
     {
@@ -10,4 +13,7 @@ boilerPlate = json.dumps(
 )
 
 with open('./users.json', 'w') as f:
-    f.write(boilerPlate)
+    if confirm:
+        f.write(boilerPlate)
+    else:
+        print('you said no so bye bye')
