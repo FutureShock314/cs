@@ -4,8 +4,6 @@
 
 ## 08/01/24
 
-### Goals for Today
-
 - Struct Diagram - paper/digital
 - Flow Chart - paper/digital
 
@@ -15,3 +13,16 @@
 - flow paper
 - flow digital
 ```
+
+## 12/01/24
+
+- same as last lesson but without the `+struct paper`
+
+```diff
++ struct digital
+- flow paper
+- flow digital
+```
+
+### proof of digital struct
+![image of structure diagram](img/struct-y10proj.drawio.png)
