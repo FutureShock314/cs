@@ -25,4 +25,5 @@
 ```
 
 ### proof of digital struct
+
 ![image of structure diagram](img/struct-y10proj.drawio.png)
