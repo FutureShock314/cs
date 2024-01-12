@@ -7,4 +7,4 @@
 ### Goals for Today::
 
 - Struct Diagram - paper/digital
-- Flow Chart - paper/digital0000000
+- Flow Chart - paper/digital
