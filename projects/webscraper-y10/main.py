@@ -8,4 +8,7 @@ r = requests.get(url)
 
 soup = BeautifulSoup(r.content, 'html.parser')
 day = soup.find('div', attrs = {'aria-labelledby': 'day0Header'})
-print(day)
+# print(day)
+items_time = soup.find_all('th', id = lambda x: x and x.startswith('d0t'))
+times = [item.get_text().strip() for item in items_time]
+print(times)
