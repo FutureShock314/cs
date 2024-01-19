@@ -23,3 +23,6 @@ for item in items_temp:
     temps.append(temp_item.get_text())
 
 print(temps)
+
+for i in range(len(temps)):
+    print(f'{times[i]}: {temps[i]}')
