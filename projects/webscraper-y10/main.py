@@ -26,4 +26,4 @@ print(soup.find_all('div', id = lambda x: x and x.startswith('tabSummaryText'))[
 print()
 
 for i in range(len(times)):
-    print(f'{times[i]}: {temps[i]} : {rains[i]}')
+    print(f'{times[i]} : {temps[i]} : {rains[i]}')
