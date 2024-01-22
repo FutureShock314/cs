@@ -21,9 +21,8 @@ items_rain = soup.find_all('td', attrs = {'headers': lambda x: x and x.startswit
 rains = [item.get_text().strip() for item in items_rain]
 print(rains)
 
-print()
-print(soup.find_all('div', id = lambda x: x and x.startswith('tabSummaryText'))[0].get_text().strip())
-print()
+# Use + for first \n in order to not show the space before text
+print('\n' + soup.find_all('div', id = lambda x: x and x.startswith('tabSummaryText'))[0].get_text().strip(), '\n')
 
 for i in range(len(times)):
     print(f'{times[i]} : {temps[i]} : {rains[i]}')
