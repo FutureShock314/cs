@@ -32,3 +32,17 @@
 
 - finish base data scrape
 - ? flow paper
+
+```diff
++ { added on 22/01/24, not accurate i think }
++ base data scrape
++ { since } prints it nicely, includes time, rain, temp
+- flow paper
+- flow digital
+```
+
+## 22/01/24
+
+- clean code
+- make `featchWeather()` a func
+- ? start `fetchNews()`
