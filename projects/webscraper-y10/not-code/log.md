@@ -27,6 +27,7 @@
 ### proof of digital struct
 
 ![image of structure diagram](img/struct-y10proj.drawio.png)
+( forgot auth, will add it though )
 
 ## 15/01/24
 
@@ -37,12 +38,22 @@
 + { added on 22/01/24, not accurate i think }
 + base data scrape
 + { since } prints it nicely, includes time, rain, temp
-- flow paper
+- flow paperdraw
 - flow digital
 ```
 
 ## 22/01/24
 
 - clean code
-- make `featchWeather()` a func
+- make `fetchWeather()` a func
 - ? start `fetchNews()`
+
+```diff
++ started auth
++ rearranged into files
+- still flow lol
+- tests
+```
+
+i need to do the flow chart desperately
+and tests
