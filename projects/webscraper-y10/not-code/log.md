@@ -50,6 +50,7 @@
 
 ```diff
 + started auth
++ { in club } finished auth :)
 + rearranged into files
 - still flow lol
 - tests

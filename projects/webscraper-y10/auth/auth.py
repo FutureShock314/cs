@@ -1,4 +1,4 @@
-import firebase_admin, json
+import firebase_admin, json, os
 from firebase_admin import db
 from rich.prompt import Confirm
 # if run from main.py, will import from auth.exists, otherwise pull from this dir
@@ -11,6 +11,9 @@ except:
 
 def auth():
 
+    filePath = 'users.json'
+    ref = ''
+
     try:
         cred_object = firebase_admin.credentials.Certificate('./auth/cs-webscraper.json')
         default_app = firebase_admin.initialize_app(cred_object, {
@@ -20,18 +23,23 @@ def auth():
         users = ref.get()
         usingFirebase = True
     except:
-        with open('users.json', 'r+') as f:
+        if not os.path.exists(filePath):
+            with open(filePath, 'w'):
+                ...
+        with open(filePath, 'r') as f:
             users = json.load(f)
         usingFirebase = False
 
     exist = Confirm.ask('Have you created an account here before?')
 
     if exist:
-        exists(users)
+        if exists(users):
+            return True
     else:
         create = Confirm.ask('create one?')
         if create:
-            createUser(users, usingFirebase, ref)
+            if createUser(users, usingFirebase, ref, filePath):
+                return True
         else:
             return
 
