@@ -4,8 +4,8 @@
 
 ## 08/01/24
 
-- Struct Diagram - paper/digital
-- Flow Chart - paper/digital
+- struct diagram - paper/digital
+- flow chart - paper/digital
 
 ```diff
 + struct paper
