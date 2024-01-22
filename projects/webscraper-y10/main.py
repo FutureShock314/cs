@@ -2,4 +2,4 @@ from auth.auth import auth
 
 auth()
 
-if auth()
+... # dont need to check for auth(), if it fails it always quits ( i think )

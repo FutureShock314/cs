@@ -41,7 +41,8 @@ def auth():
             if createUser(users, usingFirebase, ref, filePath):
                 return True
         else:
-            return
+            print('in which case, bye bye')
+            quit()
 
 
 
