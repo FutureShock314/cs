@@ -26,7 +26,7 @@ def fetchWeather():
     print('\n' + soup.find_all('div', id = lambda x: x and x.startswith('tabSummaryText'))[0].get_text().strip(), '\n')
 
     for i in range(len(times)):
-        print(f'{times[i]:<5} : {temps[i]:<3} : {rains[i]}')
+        print(f'{times[i]: <5} : {temps[i]: <3} : {rains[i]}')
 
 if __name__ == '__main__':
     fetchWeather()
