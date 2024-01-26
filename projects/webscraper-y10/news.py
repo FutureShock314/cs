@@ -12,6 +12,18 @@ def timer(func):
 @timer
 def fetchNews():
     ...
+    url = 'https://www.bbc.co.uk/'
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'html.parser')
+
+    # print(r.content)
+    items_headlines = soup.find_all('p', attrs = { 'class': lambda x: x and 'PromoHeadline' in x })
+    text_headlines = [item.get_text() for item in items_headlines]
+    headlines = [text_headlines[i] for i in range(9)]
+    print(headlines)
+
+    for headline in headlines:
+        print(headline)
 
 if __name__ == '__main__':
     fetchNews()
