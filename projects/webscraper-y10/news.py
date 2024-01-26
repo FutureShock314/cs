@@ -23,6 +23,7 @@ def fetchNews() -> None:
     soup = BeautifulSoup(r.content, 'html.parser')
 
     # print(r.content)
+    #? get every item with a class containing PromoLink
     items_headlines = soup.find_all('a', attrs={ 'class': lambda x: x and 'PromoLink' in x })
     text_headlines = [item.get_text() for item in items_headlines]
     headlines = [text_headlines[i] for i in range(9)] #? Only get the first 9 headlines, could do it in the for loop but idk i didnt want to
@@ -48,20 +49,25 @@ def fetchNews() -> None:
             articleNum = input('please type the number preceding (coming before) the title of the ARTICLE (cannot say LIVE or VIDEO before it) you wish to see, or type \'no\' or \'exit\' to exit.\n>> ')
             if ' ' in articleNum.strip():
                 continue
+            #? self explanatory
             if articleNum.lower() == 'no' or articleNum.lower() == 'exit':
                 print('exiting...')
                 quit()
+            #? doesnt allow for checking of a video as it just doesnt work
             if ('Live.' in headlines[int(articleNum)]) or ('Video' in headlines[int(articleNum)]):
                 print('CANT BE A VIDEO OR LIVE')
                 # continue # this didnt work so set articleNum to something that doesnt fulfill to force loop
                 articleNum = 'something that doesnt work'
     else: print('ok'); quit()
 
+    #? new url from href extension and parse said url
     url = f'https://bbc.co.uk{items_headlines[int(articleNum)]["href"]}'
     r = requests.get(url)
     soup = BeautifulSoup(r.content, 'html.parser')
 
+    #? find every div with either Byline or RichText in its class name and append them to a list
     items_article = soup.find('article').find_all('div', attrs = { 'class': lambda x: x and (('Byline' in x) or ('RichText' in x))})
+    #? get text from every item in list of article paragraphs, if its the second occurance of it because for some reason there are duplicates
     texts_article = [item.get_text() for item in items_article if items_article.index(item) % 2 == 0] # %2 because duplicates i think because site has 2 because accessibility or smth idk
     for i in range(len(texts_article)):
         print(f'\n{texts_article[i]}')
