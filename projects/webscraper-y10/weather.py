@@ -1,6 +1,15 @@
-import requests, pandas as pd
+import requests, pandas as pd, time
 from bs4 import BeautifulSoup
 
+def timer(func):
+    def wrapper():
+        start = time.time()
+        func()
+        end = time.time()
+        print(f'operation took {end - start} seconds')
+    return wrapper
+
+@timer
 def fetchWeather():
     url = 'https://www.metoffice.gov.uk/weather/forecast/gcnhtfzhd#'
     r = requests.get(url)
@@ -12,15 +21,15 @@ def fetchWeather():
     # print(day)
     items_time = soup.find_all('th', id = lambda x: x and x.startswith('d0t'))
     times = [item.get_text().strip() for item in items_time]
-    print(times)
+    # print(times)
 
     items_temp = soup.find_all('td', attrs = {'headers': lambda x: x and x.startswith('d0Temp d0t')})
     temps = [item.find('div').get_text() for item in items_temp]
-    print(temps)
+    # print(temps)
 
     items_rain = soup.find_all('td', attrs = {'headers': lambda x: x and x.startswith('d0PoP d0')})
     rains = [item.get_text().strip() for item in items_rain]
-    print(rains)
+    # print(rains)
 
     # Use + for first \n in order to not show the space before text
     print('\n' + soup.find_all('div', id = lambda x: x and x.startswith('tabSummaryText'))[0].get_text().strip(), '\n')

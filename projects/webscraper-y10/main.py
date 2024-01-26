@@ -1,12 +1,12 @@
 from auth.auth import auth
 from time import sleep as sl
-import random
+import random, time
 
 from weather import fetchWeather
 from news import fetchNews
 
 #! UNCOMMENT THIS FOR FINAL
-# auth()
+auth()
 
 ... # dont need to check for auth(), if it fails it always quits ( i think )
 
@@ -19,7 +19,6 @@ while input_.lower() not in possible:
     input_ = input('What would you like to see, news or weather? [w/n/news/weather]\n>> ')
 
 if input_.lower() in ['n', 'news']:
-    print('news')
     if random.randint(1, 4) == 2:
         fetchWeather() # 25% of weather if news
     else:
