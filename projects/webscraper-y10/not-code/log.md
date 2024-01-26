@@ -58,3 +58,14 @@
 
 i need to do the flow chart desperately
 and tests
+
+## 26/01/24 { not necessary }
+
+just thought id put this here to log everything i did previously
+
+```diff
++ 25% works
++ main.py finished ( meaning 25% chance of whatever is done )
++ i think i optimised weather.py a little
+= might use a class at some point                    they're pretty cool
+```
