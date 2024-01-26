@@ -2,7 +2,7 @@ import requests, pandas as pd, time
 from bs4 import BeautifulSoup
 
 def timer(func):
-    def wrapper():
+    def wrapper(*args):
         start = time.time()
         func()
         end = time.time()
