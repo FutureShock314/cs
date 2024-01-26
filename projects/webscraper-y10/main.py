@@ -5,6 +5,7 @@ import random
 from weather import fetchWeather
 from news import fetchNews
 
+#! UNCOMMENT THIS FOR FINAL
 # auth()
 
 ... # dont need to check for auth(), if it fails it always quits ( i think )
