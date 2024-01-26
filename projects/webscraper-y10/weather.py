@@ -6,7 +6,7 @@ def timer(func):
         start = time.time()
         func()
         end = time.time()
-        print(f'operation took {end - start} seconds')
+        print(f'\noperation took {end - start} seconds')
     return wrapper
 
 @timer
@@ -23,11 +23,11 @@ def fetchWeather():
     times = [item.get_text().strip() for item in items_time]
     # print(times)
 
-    items_temp = soup.find_all('td', attrs = {'headers': lambda x: x and x.startswith('d0Temp d0t')})
+    items_temp = soup.find_all('td', attrs = { 'headers': lambda x: x and x.startswith('d0Temp d0t') })
     temps = [item.find('div').get_text() for item in items_temp]
     # print(temps)
 
-    items_rain = soup.find_all('td', attrs = {'headers': lambda x: x and x.startswith('d0PoP d0')})
+    items_rain = soup.find_all('td', attrs = { 'headers': lambda x: x and x.startswith('d0PoP d0') })
     rains = [item.get_text().strip() for item in items_rain]
     # print(rains)
 
