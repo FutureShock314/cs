@@ -23,6 +23,9 @@ def auth():
         users = ref.get()
         usingFirebase = True
     except:
+        print('Failed to connect to FireBase!')
+        print('Fallback to JSON system.')
+        print('You may need to recreate your account if you have not previously in this state.')
         if not os.path.exists(filePath):
             with open(filePath, 'w'):
                 ...
