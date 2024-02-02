@@ -1,4 +1,4 @@
-import firebase_admin, json
+import firebase_admin, json, os
 from firebase_admin import db
 
 class Database:
@@ -22,27 +22,49 @@ class Database:
             print('Firebase is not connected, can\'t do this :(')
             return
         for username in userData:
-            if str(self.ref).endswith('/'):
-                self.ref = db.reference(f'{self.str_ref}{username}/')
+            if self.str_ref.endswith('/'):
+                ref = db.reference(f'{self.str_ref}{username}/')
             else:
-                self.ref = db.reference(f'{self.str_ref}/{username}/')
+                ref = db.reference(f'{self.str_ref}/{username}/')
 
-            self.ref.set(userData[username])
+            ref.set(userData[username])
         else:
             print('Successfully added user(s)!')
             return True
 
-    def addJson(self, userData: dict, filePath: str) -> bool:
-        ...
+    def addUserJson(self, userData: dict, filePath: str) -> bool:
+        if not os.path.exists(filePath):
+            with open(filePath, 'w') as f:
+                ...
+        with open(filePath, 'r') as f:
+            existingData = json.load(f)
+
+        for username in userData:
+            existingData[username] = userData[username]
+
+        existingData = json.dumps(existingData, indent = 4)
+        with open(filePath, 'w') as f:
+            f.write(existingData)
 
     def readUsers(self) -> dict:
         if not self.usingFirebase:
             print('Firebase is not connected, can\'t do this :(')
             return
-        ...
 
-    def readJson(self, filePath: str) -> dict:
-        ...
+        users = self.ref.get()
+        print(users)
+        return users
+
+    def readUsersJson(self, filePath: str) -> dict:
+        if not os.path.exists(filePath):
+            print(f'File {filePath} does not exist.')
+            return
+
+        with open(filePath, 'r') as f:
+            users = json.load(f)
+            print(users)
+            return users
+
 
 if __name__ == '__main__':
     db = Database('/auth/')

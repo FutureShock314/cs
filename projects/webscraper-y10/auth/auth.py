@@ -13,8 +13,11 @@ except:
 
 def auth():
 
-    db = Database(cred_path = './auth/cs-webscraper.json', ref = '/auth/')
-    db.addUser({'a': 'b', 'c': 'd'})
+    # db = Database(cred_path = './auth/cs-webscraper.json', ref = '/auth/')
+    # db.addUser({'a': 'b', 'c': 'd'})
+    # db.addUserJson({'a': 'b'}, 'users.json')
+    # db.readUsers()
+    # db.readUsersJson('users.json')
 
     filePath = 'users.json'
     ref = ''
