@@ -1,29 +1,28 @@
 import firebase_admin, json, os
 from firebase_admin import db
 from rich.prompt import Confirm
-# if run from main.py, will import from auth.exists, otherwise pull from this dir
+# if run from main.py, will import from auth.{module}, otherwise pull from this dir
 try:
     from auth.exists import exists
     from auth.create import createUser
+    from auth.database import Database
 except:
     from exists import exists
     from create import createUser
+    from database import Database
 
 def auth():
+
+    db = Database(cred_path = './auth/cs-webscraper.json', ref = '/auth/')
+    db.addUser({'a': 'b', 'c': 'd'})
 
     filePath = 'users.json'
     ref = ''
 
-    try:
-        cred_object = firebase_admin.credentials.Certificate('./auth/cs-webscraper.json')
-        default_app = firebase_admin.initialize_app(cred_object, {
-            'databaseURL': 'https://cs-webscraper-y10-default-rtdb.europe-west1.firebasedatabase.app/'
-        })
-        ref = db.reference('/auth')
-        users = ref.get()
+    if db.usingFirebase:
         usingFirebase = True
-    except:
-        print('Failed to connect to FireBase!')
+    else:
+        print('Failed to connect to Firebase!')
         print('Fallback to JSON system.')
         print('You may need to recreate your account if you have not previously in this state.')
         if not os.path.exists(filePath):
@@ -50,4 +49,7 @@ def auth():
 
 
 if __name__ == '__main__':
-    auth()
+    # auth()
+    from database import Database
+    db = Database(cred_path = './cs-webscraper.json', ref = '/auth/')
+    db.addUser({'a': 'b', 'c': 'd'})
