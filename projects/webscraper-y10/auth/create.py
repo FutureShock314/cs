@@ -1,11 +1,16 @@
 import firebase_admin, json
-from firebase_admin import db
 from getpass import getpass
+try:
+    # from auth import db as database
+    from database import Db as database
+except:
+    # from auth.auth import db as database
+    from auth.database import Db as database
 
-def createUser(users: dict, usingFirebase = False, ref = '/auth', filePath = './users.json'):
+def createUser(users: dict, filePath = './users.json'):
     username, password = '', ''
 
-    while username == '':
+    while username == '' or len(username) < 3:
         username = input('What would you like your username to be?\n>> ')
         if username == '' or len(username) < 3:
             print('Username is either less than 3 characters or non existent, this ain\'t allowed mate')
@@ -19,19 +24,12 @@ def createUser(users: dict, usingFirebase = False, ref = '/auth', filePath = './
         if password == '':
             print('cant have empty password')
 
-    if usingFirebase:
-        ref = db.reference(f'/auth/{ username }')
-        ref.set(password)
+    if database.usingFirebase:
+        database.addUser({username: password})
 
-    if not usingFirebase:
+    if not database.usingFirebase:
         try:
-            users[username] = password
-            users = json.dumps(users, indent = 4)
-
-            with open(filePath, 'w') as f:
-                f.write(users)
-
-            return True
+            database.addUserJson({username: password}, './users.json')
         except:
             print('it no work :(')
             print('so i kick you >:(')

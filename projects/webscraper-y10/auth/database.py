@@ -1,23 +1,28 @@
 import firebase_admin, json, os
 from firebase_admin import db
-
 class Database:
 
-    def __init__(self, cred_path: str = './auth/cs-webscraper.json', ref: str = '/') -> None:
-        self.cred_path = cred_path
+    def __init__(self, cred_path: str = './auth/cs-webscraper.json', auth_ref: str = '/') -> None:
         try:
-            cred_object = firebase_admin.credentials.Certificate(self.cred_path)
+            cred_object = firebase_admin.credentials.Certificate(cred_path)
             default_app = firebase_admin.initialize_app(cred_object, {
                 'databaseURL': 'https://cs-webscraper-y10-default-rtdb.europe-west1.firebasedatabase.app/'
             })
-            self.ref = db.reference(ref)
+            self.auth_ref = db.reference(auth_ref)
             self.usingFirebase = True
         except:
+            print('err')
             self.usingFirebase = False
-        self.str_ref = ref
+        self.str_ref = auth_ref
         print('Initialised!')
 
+    def usingFirebase(self):
+        return self.usingFirebase
+
     def addUser(self, userData: dict) -> bool:
+        '''
+            Adds user(s) to the database at the path specified + /{username}
+        '''
         if not self.usingFirebase:
             print('Firebase is not connected, can\'t do this :(')
             return
@@ -46,16 +51,16 @@ class Database:
         with open(filePath, 'w') as f:
             f.write(existingData)
 
-    def readUsers(self) -> dict:
+    def getUsers(self) -> dict:
         if not self.usingFirebase:
             print('Firebase is not connected, can\'t do this :(')
             return
 
-        users = self.ref.get()
+        users = self.auth_ref.get()
         print(users)
         return users
 
-    def readUsersJson(self, filePath: str) -> dict:
+    def getUsersJson(self, filePath: str) -> dict:
         if not os.path.exists(filePath):
             print(f'File {filePath} does not exist.')
             return
@@ -65,6 +70,11 @@ class Database:
             print(users)
             return users
 
+    def writeData(self, ref: str, data: dict):
+        ...
+
+
+Db = Database(cred_path = './auth/cs-webscraper.json', auth_ref = '/auth/')
 
 if __name__ == '__main__':
     db = Database('/auth/')

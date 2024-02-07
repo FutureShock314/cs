@@ -1,39 +1,32 @@
 import firebase_admin, json, os
-from firebase_admin import db
+# from firebase_admin import db
 from rich.prompt import Confirm
 # if run from main.py, will import from auth.{module}, otherwise pull from this dir
-try:
+if __name__ != '__main__':
     from auth.exists import exists
     from auth.create import createUser
-    from auth.database import Database
-except:
+    from auth.database import Db as db
+else:
     from exists import exists
     from create import createUser
-    from database import Database
+    from database import Db as db
 
 def auth():
 
-    # db = Database(cred_path = './auth/cs-webscraper.json', ref = '/auth/')
     # db.addUser({'a': 'b', 'c': 'd'})
     # db.addUserJson({'a': 'b'}, 'users.json')
     # db.readUsers()
     # db.readUsersJson('users.json')
 
-    filePath = 'users.json'
-    ref = ''
+    # print(db.usingFirebase)
 
     if db.usingFirebase:
-        usingFirebase = True
+        users = db.getUsers()
     else:
         print('Failed to connect to Firebase!')
         print('Fallback to JSON system.')
         print('You may need to recreate your account if you have not previously in this state.')
-        if not os.path.exists(filePath):
-            with open(filePath, 'w'):
-                ...
-        with open(filePath, 'r') as f:
-            users = json.load(f)
-        usingFirebase = False
+        users = db.getUsersJson()
 
     exist = Confirm.ask('Have you created an account here before?')
 
@@ -43,7 +36,7 @@ def auth():
     else:
         create = Confirm.ask('create one?')
         if create:
-            if createUser(users, usingFirebase, ref, filePath):
+            if createUser(users):
                 return True
         else:
             print('in which case, bye bye')
