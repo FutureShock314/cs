@@ -84,3 +84,5 @@ Maybe a few minor touch ups needed, but I'm happy with it
 - ive  already tested everything just didnt document it
 - everything works perfectly
 ```
+
+[Tests!!!!!!](./tests.md)

@@ -44,7 +44,7 @@ def fetchNews() -> None:
 
     writeData = {}
     for _ in range(len(headlines)):
-        writeData[headlines[_]] = items_headlines[_]['href']
+        writeData[headlines[_]] = f'https://bbc.com{items_headlines[_]["href"]}'
 
     db.writeDataJson(path = f'./saved-data/news/{time.strftime("%Y-%m-%d")}', data = writeData)
 

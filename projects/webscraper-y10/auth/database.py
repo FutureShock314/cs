@@ -14,7 +14,7 @@ class Database:
             print('err')
             self.usingFirebase = False
         self.str_ref = auth_ref
-        print('Initialised!')
+        # print('Initialised!')
 
     def usingFirebase(self):
         return self.usingFirebase
@@ -57,7 +57,7 @@ class Database:
             return
 
         users = self.auth_ref.get()
-        print(users)
+        # print(users)
         return users
 
     def getUsersJson(self, filePath: str) -> dict:
