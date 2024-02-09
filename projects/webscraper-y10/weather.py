@@ -1,5 +1,6 @@
 import requests, pandas as pd, time
 from bs4 import BeautifulSoup
+from auth.database import Db as db
 
 def timer(func):
     def wrapper(*args):
@@ -34,8 +35,13 @@ def fetchWeather():
     # Use + for first \n in order to not show the space before text
     print('\n' + soup.find_all('div', id = lambda x: x and x.startswith('tabSummaryText'))[0].get_text().strip(), '\n')
 
+    writeData = {}
+
     for i in range(len(times)):
         print(f'{times[i]: <5} : {temps[i]: <3} : {rains[i]}')
+        writeData[times[i]] = {"temp" : temps[i], "rain" : rains[i]}
+
+    db.writeDataJson(path = f'./saved-data/weather/{time.strftime("%Y-%m-%d")}', data = writeData)
 
 if __name__ == '__main__':
     fetchWeather()

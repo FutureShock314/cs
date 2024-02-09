@@ -70,8 +70,18 @@ class Database:
             print(users)
             return users
 
-    def writeData(self, ref: str, data: dict):
-        ...
+    def writeDataJson(
+        self,
+        path: str,
+        data: dict,
+        # type_: str
+    ) -> None:
+        # if type_ not in {'w', 'n'}:
+        #     raise ValueError(f'At parameter \'type_\': expected [\'w\', \'n\'], got \'{type_}\'')
+
+        with open(path, 'w') as f:
+            data = json.dumps(data, indent = 4)
+            f.write(data)
 
 
 Db = Database(cred_path = './auth/cs-webscraper.json', auth_ref = '/auth/')

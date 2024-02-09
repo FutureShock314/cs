@@ -1,7 +1,7 @@
-from cgitb import text
 import requests, pandas as pd, time
 from bs4 import BeautifulSoup
 from rich.prompt import Confirm
+from auth.database import Db as db
 
 
 def timer(func) -> any:
@@ -12,7 +12,6 @@ def timer(func) -> any:
         print(f'\noperation took {end - start} seconds')
 
     return wrapper
-
 
 def fetchNews() -> None:
     start = time.time()
@@ -36,12 +35,18 @@ def fetchNews() -> None:
             headline = '( VIDEO ) ' + headline.split('Video')[0].strip()
         if ('Live.' in headline) or ('FA Cup:' in headline): #or FA CUP: becase fsr when testing this a live wasnt listed live and it was an FA Cup one so
             headline = '( LIVE ) ' + headline.split('Live.')[-1].strip()
-            headlines[headlineNum] = f'Live.{headlines[headlineNum]}' 
+            headlines[headlineNum] = f'Live.{headlines[headlineNum]}'
         print(f'\n {headlineNum}: {headline: <85} ( at: https://bbc.co.uk{items_headlines[headlineNum]["href"]} )')
         headlineNum += 1
-    
+
     end = time.time()
     print(f'\noperation took {end - start} seconds')
+
+    writeData = {}
+    for _ in range(len(headlines)):
+        writeData[headlines[_]] = items_headlines[_]['href']
+
+    db.writeDataJson(path = f'./saved-data/news/{time.strftime("%Y-%m-%d")}', data = writeData)
 
     if Confirm.ask('Would you like specifics on any articles?'):
         articleNum = 'something'

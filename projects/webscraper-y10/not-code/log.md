@@ -69,3 +69,18 @@ just thought id put this here to log everything i did previously
 + i think i optimised weather.py a little
 = might use a class at some point                    they're pretty cool
 ```
+
+## 09/02/24 { technically not necessary }
+
+Code is essentially finished!
+Maybe a few minor touch ups needed, but I'm happy with it
+
+```diff
++ implemented `Database` class
++ implemented JSON save for fetched data
+- literally still no flow chart
+- still need to make tests
+- hurry up and make tests
+- ive  already tested everything just didnt document it
+- everything works perfectly
+```

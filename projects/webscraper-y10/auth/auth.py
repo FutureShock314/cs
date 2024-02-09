@@ -1,4 +1,4 @@
-import firebase_admin, json, os
+import firebase_admin, json, os, time
 # from firebase_admin import db
 from rich.prompt import Confirm
 # if run from main.py, will import from auth.{module}, otherwise pull from this dir
@@ -12,6 +12,8 @@ else:
     from database import Db as db
 
 def auth():
+
+    # db.writeDataJson(path = f'./{time.strftime("%Y-%m-%d")}.json', data = {'Hello!': 'Good day!'})
 
     # db.addUser({'a': 'b', 'c': 'd'})
     # db.addUserJson({'a': 'b'}, 'users.json')
