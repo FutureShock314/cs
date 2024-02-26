@@ -7,7 +7,7 @@ from weather import fetchWeather
 from news import fetchNews
 
 #! UNCOMMENT THIS FOR FINAL
-auth()
+# auth()
 
 ... # dont need to check for auth(), if it fails it always quits ( i think )
 
@@ -25,7 +25,8 @@ if input_.lower() in ['n', 'news']:
     else:
         fetchNews()
 else:
-    if random.randint(1, 4) == 4:
+    if (num := random.randint(1, 4)) == 4:
+        # print(num) #! for debug, use walrus to assign num to random num so i can see that its actually random lol
         fetchNews() # 25% of news if weather
     else:
         fetchWeather()
