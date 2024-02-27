@@ -1,6 +1,6 @@
 from auth.auth import auth
 from time import sleep as sl
-import random, time
+import random, time, sys
 # from auth.database import Db as db
 
 from weather import fetchWeather
@@ -8,6 +8,8 @@ from news import fetchNews
 
 #! UNCOMMENT THIS FOR FINAL
 # auth()
+
+# print(sys.argv)
 
 ... # dont need to check for auth(), if it fails it always quits ( i think )
 

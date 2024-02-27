@@ -50,7 +50,7 @@ def fetchNews() -> None:
 
     if Confirm.ask('Would you like specifics on any articles?'):
         articleNum = 'something'
-        while not articleNum.isdigit() or int(articleNum) not in [i for i in range(len(headlines))]:
+        while (not articleNum.isdigit()) or (int(articleNum) not in [i for i in range(len(headlines))]):
             articleNum = input('please type the number preceding (coming before) the title of the ARTICLE (cannot say LIVE or VIDEO before it) you wish to see, or type \'no\' or \'exit\' to exit.\n>> ')
             if ' ' in articleNum.strip():
                 continue
@@ -58,11 +58,12 @@ def fetchNews() -> None:
             if articleNum.lower() == 'no' or articleNum.lower() == 'exit':
                 print('exiting...')
                 quit()
-            #? doesnt allow for checking of a video as it just doesnt work
-            if ('Live.' in headlines[int(articleNum)]) or ('Video' in headlines[int(articleNum)]):
-                print('CANT BE A VIDEO OR LIVE')
-                # continue # this didnt work so set articleNum to something that doesnt fulfill to force loop
-                articleNum = 'something that doesnt work'
+            if int(articleNum) < 11:
+                #? doesnt allow for checking of a video as it just doesnt work
+                if ('Live.' in headlines[int(articleNum)]) or ('Video' in headlines[int(articleNum)]):
+                    print('CANT BE A VIDEO OR LIVE')
+                    # continue # this didnt work so set articleNum to something that doesnt fulfill to force loop
+                    articleNum = 'something that doesnt work'
     else: print('ok'); quit()
 
     #? new url from href extension and parse said url
