@@ -36,7 +36,7 @@ def fetchNews() -> None:
         if ('Live.' in headline) or ('FA Cup:' in headline): #or FA CUP: becase fsr when testing this a live wasnt listed live and it was an FA Cup one so
             headline = '( LIVE ) ' + headline.split('Live.')[-1].strip()
             headlines[headlineNum] = f'Live.{headlines[headlineNum]}'
-        print(f'\n {headlineNum}: {headline: <85} ( at: https://bbc.co.uk{items_headlines[headlineNum]["href"]} )')
+        print(f'\n {headlineNum + 1}: {headline: <85} ( at: https://bbc.co.uk{items_headlines[headlineNum]["href"]} )')
         headlineNum += 1
 
     end = time.time()
@@ -58,7 +58,7 @@ def fetchNews() -> None:
             if articleNum.lower() == 'no' or articleNum.lower() == 'exit':
                 print('exiting...')
                 quit()
-            if int(articleNum) < 11:
+            if int(articleNum) - 1 < len(headlines):
                 #? doesnt allow for checking of a video as it just doesnt work
                 if ('Live.' in headlines[int(articleNum)]) or ('Video' in headlines[int(articleNum)]):
                     print('CANT BE A VIDEO OR LIVE')
