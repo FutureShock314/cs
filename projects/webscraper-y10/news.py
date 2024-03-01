@@ -2,10 +2,11 @@ import requests, pandas as pd, time
 from bs4 import BeautifulSoup
 from rich.prompt import Confirm
 from auth.database import Db as db
+from typing import Callable
 
 
-def timer(func) -> any:
-    def wrapper(*args):
+def timer(func) -> Callable:
+    def wrapper(args):
         start = time.time()
         func()
         end = time.time()
