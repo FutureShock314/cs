@@ -86,3 +86,9 @@ Maybe a few minor touch ups needed, but I'm happy with it
 ```
 
 [Tests!!!!!!](./tests.md)
+
+## 04/03/24 { i missed a few lessons worth of logging }
+
+ill probably do the flow chart today idk
+maybe
+and probably in lucidchart because it looks nice or smth
