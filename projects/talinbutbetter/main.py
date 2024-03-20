@@ -56,11 +56,24 @@ print(f'Chance of failure: {fail}%')
 
 cont = input('Do you wish to continue? [Y/n]: ')
 
-if cont not in ['y', 'Y', '']:
+if cont not in ['y', 'Y', '', None]:
     print('okie dokie')
     quit()
 
 if randint(1, 100) < fail:
     print('lol missile exploded in your face you die bozo')
     raise SkillIssue('L')
+
+for i in range(10):
+    print(10 - i)
+    time.sleep(1)
+
+print(f'Missile landed at {loc}')
+casualties = (100 - fail) * 423650
+print(f'Casualties: {casualties}')
+
+with open('prevlaunch.txt', 'w') as f:
+    f.write(f'authorised by ID: {users[int(auth1)]}\nLocation: {loc}\nCasualties: {casualties}')
+
+print('ok bye bye now')
 
