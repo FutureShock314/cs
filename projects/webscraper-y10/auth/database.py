@@ -11,7 +11,9 @@ class Database:
             self.auth_ref = db.reference(auth_ref)
             self.usingFirebase = True
         except:
-            print('err')
+            # print('err')
+            print('Failed to connect to Firebase! Perhaps you\'re missing the key file?')
+            print('Falling back to JSON system.')
             self.usingFirebase = False
         self.str_ref = auth_ref
         # print('Initialised!')
@@ -74,17 +76,14 @@ class Database:
         self,
         path: str,
         data: dict,
-        # type_: str
     ) -> None:
-        # if type_ not in {'w', 'n'}:
-        #     raise ValueError(f'At parameter \'type_\': expected [\'w\', \'n\'], got \'{type_}\'')
-
-        if json.load(open(path, 'r')):
+        try:
+          json.load(open(path, 'r'))
           print('Data already saved, exiting...')
-      
-        with open(path, 'w') as f:
-            data = json.dumps(data, indent = 4)
-            f.write(data)
+        except FileNotFoundError:
+          with open(path, 'w') as f:
+              data = json.dumps(data, indent = 4)
+              f.write(data)
 
 
 Db = Database(cred_path = './auth/cs-webscraper.json', auth_ref = '/auth/')

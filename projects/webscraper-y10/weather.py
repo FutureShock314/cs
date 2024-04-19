@@ -1,4 +1,4 @@
-import requests, pandas as pd, time
+import requests, time
 from bs4 import BeautifulSoup
 from auth.database import Db as db
 
