@@ -7,7 +7,7 @@ from weather import fetchWeather
 from news import fetchNews
 
 #! UNCOMMENT THIS FOR FINAL
-# auth()
+auth()
 
 # print(sys.argv)
 

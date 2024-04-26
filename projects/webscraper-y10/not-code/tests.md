@@ -3,7 +3,7 @@
 | Testing what?  | input, {type}, {in}     | Expected out         | Actual out        | did it work? |
 |:--------------:|:-----------------------:|:--------------------:|:-----------------:|:------------:|
 | username check | erroneous, a            | username no exist    | username no exist | yeah i think |
-| username check | normal, user            | whats pass then      | whats pass the    | yeah i think |
+| username check | normal, user            | Password?            | Password?         | yeah i think |
 | pass check     | erroneous, cheese       | no lol               | no lol            | probably     |
 | pass check     | normal, password        | ok                   | ok                | probably     |
 | weather        | { none }                | { the weather }      | { the weather }   | i believe so |

@@ -28,7 +28,7 @@ def auth():
         print('Failed to connect to Firebase!')
         print('Fallback to JSON system.')
         print('You may need to recreate your account if you have not previously in this state.')
-        users = db.getUsersJson()
+        users = db.getUsersJson(filePath = './users.json')
 
     exist = Confirm.ask('Have you created an account here before?')
 
@@ -39,6 +39,8 @@ def auth():
         create = Confirm.ask('create one?')
         if create:
             if createUser(users):
+                return True
+            elif db.addUserJson(users, filePath='./users.json'):
                 return True
         else:
             print('in which case, bye bye')

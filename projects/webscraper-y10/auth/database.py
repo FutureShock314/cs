@@ -39,7 +39,7 @@ class Database:
             print('Successfully added user(s)!')
             return True
 
-    def addUserJson(self, userData: dict, filePath: str) -> bool:
+    def addUserJson(self, userData: dict, filePath: str):
         if not os.path.exists(filePath):
             with open(filePath, 'w') as f:
                 ...
