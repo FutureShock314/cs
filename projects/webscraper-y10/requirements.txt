@@ -1,6 +1,6 @@
 beautifulsoup4==4.12.3
 bs4==0.0.2
 pandas==2.1.4
-requests==2.31.0
+requests==2.32.2
 firebase_admin==6.3.0
 rich==13.7.0
